@@ -21,9 +21,12 @@ class SupportController extends Controller
     {}
     public function index(Request $request)
     {
-
-        $supports = $this->service->getAll($request->filter);
-        dd($supports);
+        $supports = $this->service->paginate(
+            page: $request->get('page', 1),
+            totalPerPage: $request->get('per_page', 15),
+            filter: $request->filter
+        );
+        //dd($supports);
         return view('admin/supports/index', compact('supports'));
     }
 
@@ -51,7 +54,6 @@ class SupportController extends Controller
 
     public function edit(string $id)
     {
-        //if (!$support = $support->where('id',$id)->first()) {
         if (!$support = $this->service->findOne($id)){
         return back();
         }
