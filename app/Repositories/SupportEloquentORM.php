@@ -24,9 +24,13 @@ class SupportEloquentORM implements SupportRepositoryInterface
                 if($filter){
                      $query->where('subject', $filter);
                         $query->orWhere('body', 'like', '%'.$filter.'%');
-            }
-        })
-        ->paginate($totalPerPage,['*'], "page", $page);
+                    }
+                })
+                ->paginate($totalPerPage,['*'], "page", $page);
+
+                dd((new PaginationPresenter($result))->total());
+
+            return new PaginationPresenter($result);
 
         }
     public function getAll(string $filter = null):array
