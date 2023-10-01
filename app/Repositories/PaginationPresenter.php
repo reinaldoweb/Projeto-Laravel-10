@@ -30,7 +30,7 @@ class PaginationPresenter implements PaginationInterface
     }
     public function isFirstPage():bool
     {
-        return $this->paginator->onFirstPage() ?? true;
+        return $this->paginator->onFirstPage();
     }
     public function isLastPage():bool
     {
