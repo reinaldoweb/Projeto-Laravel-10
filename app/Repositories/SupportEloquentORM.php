@@ -60,9 +60,7 @@ public function delete(string $id):void
 }
 public function new(CreateSupportDTO $dto):stdClass
     {
-        $support = $this->model->create(
-            (array) $dto
-            );
+        $support = $this->model->create((array) $dto);
             return (object) $support->toArray();
     }
     public function update(UpdateSupportDTO $dto):stdClass|null
