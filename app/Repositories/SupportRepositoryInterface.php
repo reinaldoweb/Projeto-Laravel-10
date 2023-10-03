@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Repositories;
-use App\DTO\
+use App\DTO\Supports\
 {
     CreateSupportDTO, UpdateSupportDTO
 };
